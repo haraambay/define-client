@@ -1,59 +1,51 @@
 {
-	"name": "crankshaft",
-	"version": "1.11.1",
-	"description": "Crankshaft Krunker Client by KraXen72",
-	"main": "./app/main.js",
-	"scripts": {
-		"preinstall": "npx only-allow pnpm",
-		"postinstall": "electron-builder install-app-deps",
-		"build": "node esbuilder.js --build",
-		"start": "node esbuilder.js && electron .",
-		"watch": "node esbuilder.js --watch",
-		"dev": "concurrently --kill-others \"node esbuilder.js --watch\" \"electron .\"",
-		"testbuild": "pnpm run build && electron .",
-		"testbuild-nv": "pnpm run build && env __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia electron .",
-		"testbuild-nv-gl": "pnpm run build && env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 __GLX_VENDOR_LIBRARY_NAME=nvidia electron .",
-		"testbuild-nv-gl-wl": "pnpm run build && env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 __GLX_VENDOR_LIBRARY_NAME=nvidia electron --enable-features=UseOzonePlatform --ozone-platform=wayland .",
-		"testbuild-nv-wl": "pnpm run build && env __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia  electron --enable-features=UseOzonePlatform --ozone-platform=wayland .",
-		"dist": "pnpm run build && electron-builder",
-		"release": "pnpm run build && electron-builder --publish always",
-		"lint": "eslint .",
-		"changelog-c": "conventional-changelog -i CHANGELOG.md -s -p conventionalcommits -r 0",
-		"changelog-a": "conventional-changelog -i CHANGELOG.md -s -r 1"
-	},
-	"author": "KraXen72",
-	"license": "GPL-3.0",
-	"homepage": "https://github.com/KraXen72/crankshaft",
-	"keywords": [
-		"Krunker"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/KraXen72/crankshaft.git"
-	},
-	"devDependencies": {
-		"@types/node": "14.14",
-		"concurrently": "^9.1.2",
-		"conventional-changelog-cli": "^5.0.0",
-		"electron-builder": "23.6.0",
-		"electron": "npm:electron-nightly@12.0.0-nightly.20201116",
-		"esbuild": "^0.25.1",
-		"eslint": "^8.56.0",
-		"eslint-config-airbnb-typescript": "^17.1.0",
-		"eslint-config-raven": "^1.0.3",
-		"eslint-plugin-import": "^2.29.1"
-	},
-	"dependencies": {
-		"compare-versions": "^6.1.0",
-		"minimal-discord-rpc": "^1.0.2",
-		"urlpattern-polyfill": "^10.0.0"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"electron",
-			"electron-nightly",
-			"esbuild",
-			"register-scheme"
-		]
-	}
+    "name": "define-client",
+    "productName": "Define Client",
+    "version": "1.0.0",
+    "description": "Fastest Krunker client by haraambay",
+    "main": "./app/main.js",
+    "author": "haraambay",
+    "homepage": "https://github.com/haraambay/define-client",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/haraambay/define-client.git"
+    },
+    "build": {
+        "appId": "com.haraambay.defineclient",
+        "productName": "Define Client",
+        "win": {
+            "target": "portable",
+            "icon": "build/icon.ico"
+        },
+        "directories": {
+            "output": "dist"
+        }
+    },
+    "scripts": {
+        "preinstall": "npx only-allow pnpm",
+        "postinstall": "electron-builder install-app-deps",
+        "build": "node esbuilder.js --build",
+        "start": "node esbuilder.js && electron .",
+        "dist": "pnpm run build && electron-builder"
+    },
+    "devDependencies": {
+        "@types/node": "14.14",
+        "electron-builder": "23.6.0",
+        "electron": "npm:electron-nightly@12.0.0-nightly.20201116",
+        "esbuild": "^0.25.1",
+        "eslint": "^8.56.0",
+        "concurrently": "^9.1.2"
+    },
+    "dependencies": {
+        "compare-versions": "^6.1.0",
+        "minimal-discord-rpc": "npm:@nyabsi/minimal-discord-rpc@1.0.1",
+        "urlpattern-polyfill": "^10.0.0"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "electron",
+            "electron-nightly",
+            "esbuild"
+        ]
+    }
 }
